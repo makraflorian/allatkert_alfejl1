@@ -1,0 +1,32 @@
+body{
+    background-image: url("../img/bg.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+}
+.note{
+    font-size: 16px;
+    color: gray;
+}
+label{
+    font-size: 24px;
+}
+.allatok_cella{
+    text-align: center;
+    vertical-align: center;
+}
+.white_bg{
+    background-color: white;
+    padding: 25px;
+}
+.cimsor{
+    margin: 10px;
+    font-size: 55px;
+    cursor: pointer;
+    font-family: Gigi, serif;
+    color: #008d12;
+}
+.bold_p{
+    font-weight: bold;
+    text-decoration: underline;
+}

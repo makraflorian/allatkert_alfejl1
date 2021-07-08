@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.Cursor?>
+<BorderPane prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.OrokbefogadasokController">
+   <top>
+       <MenuBar BorderPane.alignment="CENTER">
+           <menus>
+               <Menu mnemonicParsing="false" text="File">
+                   <items>
+                       <MenuItem mnemonicParsing="false" onAction="#onExit" text="Bezárás" />
+                   </items>
+               </Menu>
+               <Menu mnemonicParsing="false" text="Szerkesztés">
+                   <items>
+                       <MenuItem mnemonicParsing="false" onAction="#addAllat" text="Új állat" />
+                   </items>
+               </Menu>
+           </menus>
+           <cursor>
+               <Cursor fx:constant="DEFAULT" />
+           </cursor>
+       </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Örökbefogadások">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="orokbefogadasTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="ember_name" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Örökbefogadó" />
+                <TableColumn fx:id="allat_name" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Állat" />
+                  <TableColumn fx:id="mikor" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Dátum" />
+                  <TableColumn fx:id="tipus" prefWidth="130.0" style="-fx-alignment: CENTER;" text="Támogatás típusa" />
+                  <TableColumn fx:id="mennyiseg" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Mennyiség" />
+                  <TableColumn fx:id="gyakorisag" prefWidth="110.0" style="-fx-alignment: CENTER;" text="Gyakoriság" />
+              </columns>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="80.0" prefWidth="660.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+               <children>
+                  <VBox prefHeight="80.0" prefWidth="195.0">
+                     <children>
+                        <Label text="Szűrés örökbefogadó alapján">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="emberSrc" onKeyReleased="#onSrc">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="80.0" prefWidth="195.0">
+                     <children>
+                        <Label text="Állat alapján">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="allatSrc" onKeyReleased="#onSrc" prefHeight="25.0" prefWidth="154.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="140.0">
+                     <children>
+                        <Label text="Örökbefogadás éve">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="yearSrc" onKeyReleased="#onYearSrc">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="88.0" prefWidth="126.0">
+                     <children>
+                        <Label text="Támogatás típusa">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" onAction="#refreshTable" selected="true" text="Összes">
+                           <VBox.margin>
+                              <Insets bottom="2.0" left="10.0" right="2.0" top="10.0" />
+                           </VBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="nemtom" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="listIfPenz" mnemonicParsing="false" onAction="#onTypePenz" text="Pénzösszeg" toggleGroup="$nemtom">
+                           <VBox.margin>
+                              <Insets bottom="2.0" left="10.0" right="2.0" top="2.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="listIfEledel" mnemonicParsing="false" onAction="#onTypeEledel" text="Állateledel" toggleGroup="$nemtom">
+                           <VBox.margin>
+                              <Insets bottom="2.0" left="10.0" right="2.0" top="2.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#vissza" text="Vissza">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

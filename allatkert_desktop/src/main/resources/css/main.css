@@ -1,0 +1,15 @@
+#nameErrors{
+    -fx-text-fill: red;
+}
+#emailErrors{
+    -fx-text-fill: red;
+}
+#fajErrors{
+    -fx-text-fill: red;
+}
+#dateOfBirthErrors{
+    -fx-text-fill: red;
+}
+.root{
+    -fx-background-color: #9eff9e;
+}
